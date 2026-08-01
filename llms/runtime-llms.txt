@@ -1,0 +1,238 @@
+# Runtime
+
+## Docs
+
+- [Personal Activity](https://docs.runtm.com/cloud-api/activity/personal-activity.md): Daily activity feed for the current user (GitHub-style grid data).
+- [Personal Summary](https://docs.runtm.com/cloud-api/activity/personal-summary.md): Aggregated usage stats (sessions, prompts, tokens, cost) for the current user.
+- [Recent Prompts](https://docs.runtm.com/cloud-api/activity/recent-prompts.md): Recent prompt history across all sessions for the current user.
+- [Session Usage](https://docs.runtm.com/cloud-api/activity/session-usage.md): Usage breakdown for a specific session (prompts, tokens, cost).
+- [Team Activity](https://docs.runtm.com/cloud-api/activity/team-activity.md): Org-wide daily activity feed (GitHub-style grid data).
+- [Team Deploy Metrics](https://docs.runtm.com/cloud-api/activity/team-deploy-metrics.md): Deployment metrics summary for the organization.
+- [Team Events](https://docs.runtm.com/cloud-api/activity/team-events.md): Structured event log for the organization (audit/export).
+- [Team Members](https://docs.runtm.com/cloud-api/activity/team-members.md): Per-member usage breakdown for the organization.
+- [Team Summary](https://docs.runtm.com/cloud-api/activity/team-summary.md): Org-wide aggregated usage summary (sessions, prompts, tokens, cost).
+- [Team Traces](https://docs.runtm.com/cloud-api/activity/team-traces.md): Distributed traces across organization sessions.
+- [Agent CLI (runtm-api)](https://docs.runtm.com/cloud-api/agent-cli.md): Thin Go wrapper around the Cloud API, designed for AI coding agents
+- [Authentication](https://docs.runtm.com/cloud-api/authentication.md): How to authenticate with the Runtime Cloud API
+- [Verify API Key](https://docs.runtm.com/cloud-api/authentication/verify.md): Verify an API key and inspect its scopes
+- [Knowledge Catalog](https://docs.runtm.com/cloud-api/context/knowledge/catalog.md): List every available knowledge provider and its capabilities.
+- [Create Knowledge Integration](https://docs.runtm.com/cloud-api/context/knowledge/create.md): Connect a new knowledge provider with static credentials.
+- [Delete Knowledge Integration](https://docs.runtm.com/cloud-api/context/knowledge/delete.md): Permanently delete a knowledge integration and its stored credentials.
+- [Get Knowledge Integration](https://docs.runtm.com/cloud-api/context/knowledge/get.md): Retrieve a single knowledge integration by ID.
+- [List Knowledge Integrations](https://docs.runtm.com/cloud-api/context/knowledge/list.md): List knowledge integrations for the current organization.
+- [OAuth Install](https://docs.runtm.com/cloud-api/context/knowledge/oauth-install.md): Start an OAuth connection flow for a knowledge provider.
+- [Update Knowledge Integration](https://docs.runtm.com/cloud-api/context/knowledge/patch.md): Update display name, metadata, or tool permissions on an integration.
+- [Rotate Credentials](https://docs.runtm.com/cloud-api/context/knowledge/rotate.md): Replace the credentials on a knowledge integration.
+- [Test Knowledge Integration](https://docs.runtm.com/cloud-api/context/knowledge/test.md): Run a connectivity check against a knowledge integration.
+- [Get Org Instructions](https://docs.runtm.com/cloud-api/context/org-instructions-get.md): Retrieve the custom instructions set for an organization.
+- [Set Org Instructions](https://docs.runtm.com/cloud-api/context/org-instructions-set.md): Set or clear the custom instructions for an organization.
+- [List Attachments](https://docs.runtm.com/cloud-api/context/skills/attachments-list.md): List the repository attachments for a directive
+- [Replace Attachments](https://docs.runtm.com/cloud-api/context/skills/attachments-replace.md): Replace all repository attachments for a directive
+- [Create Skill](https://docs.runtm.com/cloud-api/context/skills/create.md): Create a new agent directive (skill, MCP server, doc, hook, etc.)
+- [Delete Skill](https://docs.runtm.com/cloud-api/context/skills/delete.md): Soft-delete an agent directive
+- [Discover Skills in Repo](https://docs.runtm.com/cloud-api/context/skills/discover-in-repo.md): Scan a GitHub repository for SKILL.md candidates
+- [Get Skill](https://docs.runtm.com/cloud-api/context/skills/get.md): Retrieve a single agent directive by ID
+- [Import Skill](https://docs.runtm.com/cloud-api/context/skills/import.md): Import one or more directives from a URL or GitHub repository
+- [List Skills](https://docs.runtm.com/cloud-api/context/skills/list.md): List skills, MCP servers, docs, hooks, and other agent directives
+- [Update Skill](https://docs.runtm.com/cloud-api/context/skills/patch.md): Partially update a directive's metadata or content
+- [Presign Upload](https://docs.runtm.com/cloud-api/context/skills/presign-upload.md): Get a presigned URL for uploading a skill file directly to storage
+- [Publish Skill](https://docs.runtm.com/cloud-api/context/skills/publish.md): Publish the current draft version of a directive
+- [Resync Skill](https://docs.runtm.com/cloud-api/context/skills/resync.md): Re-fetch a directive's upstream source and optionally auto-publish
+- [New Version](https://docs.runtm.com/cloud-api/context/skills/version.md): Clone a directive into a new unpublished draft version
+- [Get User Instructions](https://docs.runtm.com/cloud-api/context/user-instructions-get.md): Retrieve the custom instructions set by the authenticated user.
+- [Set User Instructions](https://docs.runtm.com/cloud-api/context/user-instructions-set.md): Set or clear the custom instructions for the authenticated user.
+- [Conventions](https://docs.runtm.com/cloud-api/conventions.md): Common patterns across all endpoints
+- [Deploy Info](https://docs.runtm.com/cloud-api/deploy/info.md): Get current deployment status and tier recommendation for a session
+- [Deploy Preflight](https://docs.runtm.com/cloud-api/deploy/preflight.md): Run pre-deploy connectivity and credential checks
+- [Run Deploy](https://docs.runtm.com/cloud-api/deploy/run.md): Start a deployment and stream progress events
+- [Scaffold Deploy](https://docs.runtm.com/cloud-api/deploy/scaffold.md): Generate deployment config files for the session project
+- [Validate Deploy](https://docs.runtm.com/cloud-api/deploy/validate.md): Validate deployment configuration before deploying
+- [Get Volumes](https://docs.runtm.com/cloud-api/deploy/volumes-get.md): Get persistent volume configuration for a session
+- [Update Volumes](https://docs.runtm.com/cloud-api/deploy/volumes-update.md): Update persistent volume configuration for a session
+- [Errors](https://docs.runtm.com/cloud-api/errors.md): Standard error responses and status codes
+- [Get Allowlist Policy](https://docs.runtm.com/cloud-api/guardrails/allowlist-policy-get.md): Retrieve the default allowlist policy for an organization.
+- [Set Allowlist Policy](https://docs.runtm.com/cloud-api/guardrails/allowlist-policy-set.md): Set the default allowlist policy for an organization.
+- [Deploy Limits](https://docs.runtm.com/cloud-api/guardrails/deploy-limits.md): Get plan-based deployment limits for the current user
+- [Deploy Permission](https://docs.runtm.com/cloud-api/guardrails/deploy-permission.md): Check whether the current user is allowed to deploy within an organization
+- [Org Cleanup](https://docs.runtm.com/cloud-api/guardrails/org-cleanup.md): Post-deletion cleanup of organization resources
+- [Get Org Limits](https://docs.runtm.com/cloud-api/guardrails/org-limits-get.md): Retrieve the usage limits and deployment policy for an organization.
+- [Set Org Limits](https://docs.runtm.com/cloud-api/guardrails/org-limits-set.md): Set the usage limits and deployment policy for an organization.
+- [Add Repo to Installation](https://docs.runtm.com/cloud-api/integrations/github-app/installation-add-repo.md): Add a repository to a GitHub App installation's access list.
+- [Delete Installation](https://docs.runtm.com/cloud-api/integrations/github-app/installation-delete.md): Remove a GitHub App installation record.
+- [Installation Repos](https://docs.runtm.com/cloud-api/integrations/github-app/installation-repos.md): List repos for a specific GitHub App installation.
+- [Installation Token](https://docs.runtm.com/cloud-api/integrations/github-app/installation-token.md): Get a short-lived access token for a GitHub App installation.
+- [List Installations](https://docs.runtm.com/cloud-api/integrations/github-app/installations-list.md): List GitHub App installations accessible to the current user.
+- [List Repos](https://docs.runtm.com/cloud-api/integrations/github-app/repos-list.md): All repos accessible via installed GitHub Apps, fetched in parallel.
+- [Token for Repo](https://docs.runtm.com/cloud-api/integrations/github-app/token-for-repo.md): Get an installation access token scoped to a specific repo owner.
+- [Authorize](https://docs.runtm.com/cloud-api/integrations/github-user-tokens/authorize.md): Exchange an OAuth code for a GitHub user token.
+- [Get User Token](https://docs.runtm.com/cloud-api/integrations/github-user-tokens/user-token.md): Get a valid GitHub user access token, auto-refreshing if expired.
+- [Delete Token](https://docs.runtm.com/cloud-api/integrations/github-user-tokens/user-token-delete.md): Revoke and delete the stored GitHub user token.
+- [Token Status](https://docs.runtm.com/cloud-api/integrations/github-user-tokens/user-token-status.md): Quick check if a GitHub user token is connected and valid.
+- [Validate Token](https://docs.runtm.com/cloud-api/integrations/github-user-tokens/user-token-validate.md): Validate the stored GitHub user token against the GitHub API.
+- [Delete Integration](https://docs.runtm.com/cloud-api/integrations/linear/integration-delete.md): Disconnect the Linear integration for the organization.
+- [Get Integration](https://docs.runtm.com/cloud-api/integrations/linear/integration-get.md): Get the current Linear integration status and configuration.
+- [Update Integration](https://docs.runtm.com/cloud-api/integrations/linear/integration-update.md): Update the Linear integration configuration.
+- [OAuth Install URL](https://docs.runtm.com/cloud-api/integrations/linear/oauth-install.md): Get the OAuth URL to install the Linear integration.
+- [List Projects](https://docs.runtm.com/cloud-api/integrations/linear/projects.md): List Linear projects in the connected workspace.
+- [Delete User Connection](https://docs.runtm.com/cloud-api/integrations/linear/user-connection-delete.md): Remove the current user's personal Linear identity link.
+- [Get User Connection](https://docs.runtm.com/cloud-api/integrations/linear/user-connection-get.md): Get the current user's Linear identity link status.
+- [Delete Integration](https://docs.runtm.com/cloud-api/integrations/slack/integration-delete.md): Disconnect the Slack integration for the organization.
+- [Get Integration](https://docs.runtm.com/cloud-api/integrations/slack/integration-get.md): Get the Slack integration configuration and status.
+- [Save Integration](https://docs.runtm.com/cloud-api/integrations/slack/integration-save.md): Save or update the Slack integration configuration.
+- [Test Integration](https://docs.runtm.com/cloud-api/integrations/slack/integration-test.md): Send a test message to verify the Slack integration is working.
+- [App Manifest](https://docs.runtm.com/cloud-api/integrations/slack/manifest.md): Get the Slack App Manifest URL for self-hosted setup.
+- [OAuth Install URL](https://docs.runtm.com/cloud-api/integrations/slack/oauth-install.md): Get the Slack OAuth URL to install the managed Runtime app.
+- [API Overview](https://docs.runtm.com/cloud-api/overview.md): Programmatic access to Runtime Cloud sessions, deployments, templates, and integrations
+- [Current Plan](https://docs.runtm.com/cloud-api/provider-keys/current-plan.md): Get the current billing plan for the authenticated user
+- [Delete Org Provider Key](https://docs.runtm.com/cloud-api/provider-keys/org-delete.md): Remove a stored provider API key from an organization.
+- [Get Org Provider Key](https://docs.runtm.com/cloud-api/provider-keys/org-get.md): Check whether an organization has a provider key configured.
+- [Set Org Provider Key](https://docs.runtm.com/cloud-api/provider-keys/org-set.md): Store or replace a provider API key for an organization.
+- [Resolved Key](https://docs.runtm.com/cloud-api/provider-keys/resolved.md): Get the resolved provider key after applying the org → user fallback chain
+- [Delete User Provider Key](https://docs.runtm.com/cloud-api/provider-keys/user-delete.md): Remove a stored provider API key for the authenticated user.
+- [Get User Provider Key](https://docs.runtm.com/cloud-api/provider-keys/user-get.md): Check whether the authenticated user has a provider key configured.
+- [Set User Provider Key](https://docs.runtm.com/cloud-api/provider-keys/user-set.md): Store or replace a provider API key for the authenticated user.
+- [Rate Limits](https://docs.runtm.com/cloud-api/rate-limits.md): API rate limiting and throttling
+- [Scopes & Permissions](https://docs.runtm.com/cloud-api/scopes.md): API key scopes, what they unlock, and role ceilings
+- [Delete Personal Secret](https://docs.runtm.com/cloud-api/secrets/personal-delete.md): Delete a personal secret by name
+- [List Personal Secrets](https://docs.runtm.com/cloud-api/secrets/personal-list.md): List personal secret names and metadata
+- [Set Personal Secret](https://docs.runtm.com/cloud-api/secrets/personal-set.md): Create or update personal secrets
+- [Resolved Secrets](https://docs.runtm.com/cloud-api/secrets/resolved.md): Get merged secret names from personal and team sources
+- [Delete Team Secret](https://docs.runtm.com/cloud-api/secrets/team-delete.md): Delete a team secret by name
+- [List Team Secrets](https://docs.runtm.com/cloud-api/secrets/team-list.md): List team secret names for the organization
+- [Set Team Secret](https://docs.runtm.com/cloud-api/secrets/team-set.md): Create or update team secrets for the organization
+- [List Collaborators](https://docs.runtm.com/cloud-api/sessions/collaborators.md): List users collaborating on a session
+- [Create Session](https://docs.runtm.com/cloud-api/sessions/create.md): Create a new cloud session with a coding agent
+- [Delete Session](https://docs.runtm.com/cloud-api/sessions/delete.md): Destroy a session and its sandbox
+- [Detect Env Vars](https://docs.runtm.com/cloud-api/sessions/detect-env-vars.md): Scan the project for required environment variables
+- [Get Detected Env Vars](https://docs.runtm.com/cloud-api/sessions/detected-env-vars.md): Retrieve env vars detected from project files
+- [Delete Env Var](https://docs.runtm.com/cloud-api/sessions/env-vars-delete.md): Remove a single environment variable from a session
+- [Get Env Vars](https://docs.runtm.com/cloud-api/sessions/env-vars-get.md): Retrieve environment variables for a session
+- [Set Env Vars](https://docs.runtm.com/cloud-api/sessions/env-vars-set.md): Set environment variables for a session
+- [Session Events](https://docs.runtm.com/cloud-api/sessions/events.md): Subscribe to real-time session events via SSE
+- [Delete File](https://docs.runtm.com/cloud-api/sessions/files-delete.md): Delete a file from the sandbox
+- [Download File](https://docs.runtm.com/cloud-api/sessions/files-download.md): Download raw file content from the sandbox
+- [List Files](https://docs.runtm.com/cloud-api/sessions/files-list.md): List files and directories in the session sandbox
+- [Create Directory](https://docs.runtm.com/cloud-api/sessions/files-mkdir.md): Create a directory in the sandbox
+- [Read File](https://docs.runtm.com/cloud-api/sessions/files-read.md): Read the contents of a file in the sandbox
+- [Rename File](https://docs.runtm.com/cloud-api/sessions/files-rename.md): Rename or move a file within the sandbox
+- [Search Files](https://docs.runtm.com/cloud-api/sessions/files-search.md): Search for files by content in the sandbox
+- [Upload File](https://docs.runtm.com/cloud-api/sessions/files-upload.md): Upload a file to the sandbox via multipart form
+- [Write File](https://docs.runtm.com/cloud-api/sessions/files-write.md): Create or overwrite a file in the sandbox
+- [Get Session](https://docs.runtm.com/cloud-api/sessions/get.md): Retrieve a single cloud session by ID
+- [Clone Repository](https://docs.runtm.com/cloud-api/sessions/git-clone.md): Clone a git repository into the sandbox
+- [Git Operation](https://docs.runtm.com/cloud-api/sessions/git-operation.md): Execute a git operation in the sandbox
+- [Git Sync](https://docs.runtm.com/cloud-api/sessions/git-sync.md): Sync local changes with the remote repository
+- [Heartbeat (legacy)](https://docs.runtm.com/cloud-api/sessions/heartbeat.md): Legacy keepalive endpoint - prefer the v2 refresh endpoint
+- [Get History](https://docs.runtm.com/cloud-api/sessions/history.md): Retrieve prompt history for a session
+- [Get Session Instructions](https://docs.runtm.com/cloud-api/sessions/instructions-get.md): Retrieve per-session custom instructions
+- [Set Session Instructions](https://docs.runtm.com/cloud-api/sessions/instructions-set.md): Set or update per-session custom instructions
+- [List Sessions](https://docs.runtm.com/cloud-api/sessions/list.md): List cloud sessions with pagination and filters
+- [Pause Session](https://docs.runtm.com/cloud-api/sessions/pause.md): Pause a session to save resources
+- [Send Prompt](https://docs.runtm.com/cloud-api/sessions/prompt.md): Send a prompt to the coding agent in the session
+- [Cancel Prompt](https://docs.runtm.com/cloud-api/sessions/prompt-cancel.md): Cancel a running prompt
+- [Rewind Prompt](https://docs.runtm.com/cloud-api/sessions/prompt-rewind.md): Undo the last prompt and its changes
+- [Rename Session](https://docs.runtm.com/cloud-api/sessions/rename.md): Update the display name of a session
+- [Resume Session](https://docs.runtm.com/cloud-api/sessions/resume.md): Resume a paused session
+- [Run Server](https://docs.runtm.com/cloud-api/sessions/run-server.md): Start a development server in the sandbox
+- [Start Session (legacy)](https://docs.runtm.com/cloud-api/sessions/start.md): Legacy cold-start endpoint - prefer the v2 sandbox lifecycle endpoint
+- [Update Visibility](https://docs.runtm.com/cloud-api/sessions/visibility.md): Change a session's visibility between private and team
+- [Get Workspace State](https://docs.runtm.com/cloud-api/sessions/workspace-state.md): Retrieve workspace state including detected ports and processes
+- [Build Template](https://docs.runtm.com/cloud-api/templates/build.md): Trigger a template snapshot build
+- [Build Logs](https://docs.runtm.com/cloud-api/templates/build-logs.md): Stream current build logs via Server-Sent Events
+- [Build Logs History](https://docs.runtm.com/cloud-api/templates/build-logs-history.md): Get past build log entries for a template
+- [Create Template](https://docs.runtm.com/cloud-api/templates/create.md): Create a new organization template
+- [Delete Template](https://docs.runtm.com/cloud-api/templates/delete.md): Delete an organization template
+- [Fix Session](https://docs.runtm.com/cloud-api/templates/fix-session.md): Create a session to repair a broken template
+- [Get Template](https://docs.runtm.com/cloud-api/templates/get.md): Get detailed information about a specific template
+- [List Templates](https://docs.runtm.com/cloud-api/templates/list.md): List organization templates with pagination
+- [Template Repos](https://docs.runtm.com/cloud-api/templates/repos.md): List repositories available for template creation
+- [Save Snapshot](https://docs.runtm.com/cloud-api/templates/save-snapshot.md): Save current session state as a template snapshot
+- [Delete Template Secret](https://docs.runtm.com/cloud-api/templates/secret-delete.md): Delete a single secret from a template
+- [List Template Secrets](https://docs.runtm.com/cloud-api/templates/secrets-list.md): List secret names configured for a template
+- [Update Template Secrets](https://docs.runtm.com/cloud-api/templates/secrets-update.md): Set or update secrets for a template
+- [Update Template Config](https://docs.runtm.com/cloud-api/templates/update-config.md): Partially update a template's configuration
+- [Collaboration WebSocket](https://docs.runtm.com/cloud-api/websockets/collaboration.md): Real-time presence and collaboration
+- [WebSockets Overview](https://docs.runtm.com/cloud-api/websockets/overview.md): Real-time communication via WebSockets
+- [Prompt WebSocket](https://docs.runtm.com/cloud-api/websockets/prompt.md): Stream prompts and agent output in real-time
+- [Terminal WebSocket](https://docs.runtm.com/cloud-api/websockets/terminal.md): Interactive terminal access via WebSocket
+- [Token Exchange](https://docs.runtm.com/cloud-api/websockets/token-exchange.md): Exchange an API key for a short-lived WebSocket token
+- [Background Agents](https://docs.runtm.com/concepts/agents.md): Autonomous coding runs triggered from tickets, issues, and the API
+- [Coding Agents](https://docs.runtm.com/concepts/coding-agents.md): The AI coding agents that power Runtime sessions and background runs
+- [Context](https://docs.runtm.com/concepts/context.md): System instructions, skills, MCP servers, reference docs, and knowledge sources that shape how every agent behaves
+- [Deployments](https://docs.runtm.com/concepts/deployments.md): Ship a session's work to a live HTTPS URL with build logs and previews
+- [Guardrails](https://docs.runtm.com/concepts/guardrails.md): Allowlists, hooks, network rules, approvals, RBAC, and audit trails that govern agent behavior
+- [Integrations](https://docs.runtm.com/concepts/integrations.md): Connect GitHub, Linear, Slack, and knowledge sources to your Runtime sessions
+- [Observability](https://docs.runtm.com/concepts/observability.md): Activity logs, metrics, and traces for every prompt, tool call, and deploy
+- [Organizations](https://docs.runtm.com/concepts/organizations.md): Team workspaces, roles, and how resources are scoped to personal or org context
+- [Real-time](https://docs.runtm.com/concepts/real-time.md): WebSockets for terminals, prompt streaming, and multi-user collaboration
+- [Sessions](https://docs.runtm.com/concepts/sessions.md): Sandboxed cloud environments where agents build, test, and ship code
+- [Skills](https://docs.runtm.com/concepts/skills.md): Reusable instruction bundles with files, MCP servers, and tooling that extend agent capabilities
+- [Templates](https://docs.runtm.com/concepts/templates.md): Snapshots of fully configured environments that new sessions boot from instantly
+- [Authenticate and manage API keys](https://docs.runtm.com/guides/authentication-walkthrough.md): Create, verify, scope, rotate, and revoke API keys for the Runtime API
+- [Best practices](https://docs.runtm.com/guides/best-practices.md): Key hygiene, scope selection, lifecycle management, prompt design, and cost controls
+- [Handle long-running prompts](https://docs.runtm.com/guides/long-running-prompts.md): Cancel, rewind, replay history, and choose between REST and WebSocket for prompt control
+- [Manage sessions at scale](https://docs.runtm.com/guides/managing-sessions-at-scale.md): Session lifecycle, polling, heartbeats, retries, and error recovery
+- [Guides](https://docs.runtm.com/guides/overview.md): Practical patterns for using the Runtime API
+- [Pull activity and telemetry](https://docs.runtm.com/guides/pulling-activity-and-telemetry.md): Read personal and team activity, usage summaries, traces, and per-session cost data
+- [Stream prompts over WebSockets](https://docs.runtm.com/guides/streaming-prompts-over-websockets.md): Token exchange, the Prompt WebSocket protocol, event types, and reconnection handling
+- [Teach the agent your codebase](https://docs.runtm.com/guides/teach-the-agent-your-codebase.md): Use AGENTS.md, skills, and org instructions to give agents the context they need
+- [Webhooks and triggers](https://docs.runtm.com/guides/webhooks-and-triggers.md): Outbound webhook events Runtime emits and how to consume them from external systems
+- [Work with session files](https://docs.runtm.com/guides/working-with-files.md): Read, write, upload, download, and search files inside a running sandbox
+- [Introduction](https://docs.runtm.com/introduction.md): Guardrails and observability for all the coding agents across your organization
+- [Create Deployment](https://docs.runtm.com/open-source/api/deployments/create.md): Create a new deployment or redeploy an existing one
+- [Delete Deployment](https://docs.runtm.com/open-source/api/deployments/delete.md): Destroy a deployment and release resources
+- [Get Deployment](https://docs.runtm.com/open-source/api/deployments/get.md): Get deployment status and details
+- [List Deployments](https://docs.runtm.com/open-source/api/deployments/list.md): Retrieve a list of all deployments
+- [Search Deployments](https://docs.runtm.com/open-source/api/deployments/search.md): Search deployments by discovery metadata
+- [Add Domain](https://docs.runtm.com/open-source/api/domains/add.md): Add a custom domain to a deployment
+- [Get Domain Status](https://docs.runtm.com/open-source/api/domains/get.md): Check the status of a custom domain
+- [Remove Domain](https://docs.runtm.com/open-source/api/domains/remove.md): Remove a custom domain from a deployment
+- [Get Logs](https://docs.runtm.com/open-source/api/logs.md): Retrieve build, deploy, and runtime logs
+- [API Overview](https://docs.runtm.com/open-source/api/overview.md): Runtime REST API for programmatic access
+- [Get Current User](https://docs.runtm.com/open-source/api/user/me.md): Get information about the authenticated user
+- [approve](https://docs.runtm.com/open-source/cli/approve.md): Approve agent-proposed changes
+- [Authentication](https://docs.runtm.com/open-source/cli/auth.md): Login, logout, and diagnose authentication
+- [config](https://docs.runtm.com/open-source/cli/config.md): Manage CLI configuration
+- [deploy](https://docs.runtm.com/open-source/cli/deploy.md): Deploy to a live URL
+- [destroy](https://docs.runtm.com/open-source/cli/destroy.md): Destroy a deployment
+- [domain](https://docs.runtm.com/open-source/cli/domain.md): Manage custom domains
+- [fix](https://docs.runtm.com/open-source/cli/fix.md): Auto-fix common project issues
+- [init](https://docs.runtm.com/open-source/cli/init.md): Spin up a new sandbox
+- [list](https://docs.runtm.com/open-source/cli/list.md): List all deployments
+- [logs](https://docs.runtm.com/open-source/cli/logs.md): View deployment logs with search and filtering
+- [CLI Overview](https://docs.runtm.com/open-source/cli/overview.md): Install and use the Runtime command-line interface
+- [run](https://docs.runtm.com/open-source/cli/run.md): Run project locally with auto-detection
+- [search](https://docs.runtm.com/open-source/cli/search.md): Search deployments by description and tags
+- [secrets](https://docs.runtm.com/open-source/cli/secrets.md): Manage environment secrets
+- [Sandbox Sessions](https://docs.runtm.com/open-source/cli/session.md): Run AI coding agents in isolated local environments
+- [status](https://docs.runtm.com/open-source/cli/status.md): Check deployment status
+- [validate](https://docs.runtm.com/open-source/cli/validate.md): Validate project before deployment
+- [Authentication](https://docs.runtm.com/open-source/features/auth.md): Add user authentication to web-app template
+- [Custom Domains](https://docs.runtm.com/open-source/features/custom-domains.md): Connect your own domain name to deployments
+- [Database](https://docs.runtm.com/open-source/features/database.md): Persistent SQLite storage for your applications
+- [Machine Tiers](https://docs.runtm.com/open-source/features/machine-tiers.md): Choose the right resources for your workload
+- [Secrets & Environment Variables](https://docs.runtm.com/open-source/features/secrets.md): Manage environment variables and secrets for deployments
+- [Agent Workflow](https://docs.runtm.com/open-source/guides/agent-workflow.md): How agents propose changes and humans approve them
+- [Discovery Metadata](https://docs.runtm.com/open-source/guides/discovery.md): Make your deployments searchable with discovery files
+- [Logs & Debugging](https://docs.runtm.com/open-source/guides/logs-debugging.md): Advanced log filtering and debugging techniques
+- [Troubleshooting](https://docs.runtm.com/open-source/guides/troubleshooting.md): Common issues and how to fix them
+- [Open Source](https://docs.runtm.com/open-source/overview.md): Self-host Runtime, use the CLI, and work with the OSS deployment API
+- [Admin Commands](https://docs.runtm.com/open-source/self-hosting/admin-commands.md): CLI commands for self-hosting operators
+- [Configuration](https://docs.runtm.com/open-source/self-hosting/configuration.md): Environment variables for self-hosted Runtime
+- [Docker Compose Setup](https://docs.runtm.com/open-source/self-hosting/docker-compose.md): Run Runtime locally with Docker Compose
+- [Self-Hosting](https://docs.runtm.com/open-source/self-hosting/overview.md): Run Runtime on your own infrastructure
+- [Requirements](https://docs.runtm.com/open-source/self-hosting/requirements.md): Prerequisites for self-hosting Runtime
+- [backend-service](https://docs.runtm.com/open-source/templates/backend-service.md): Python FastAPI template for APIs and backends
+- [Docker Template](https://docs.runtm.com/open-source/templates/docker.md): Bring your own Dockerfile for any language
+- [Templates](https://docs.runtm.com/open-source/templates/overview.md): Starter projects for common use cases
+- [static-site](https://docs.runtm.com/open-source/templates/static-site.md): Next.js static site template for landing pages and docs
+- [web-app](https://docs.runtm.com/open-source/templates/web-app.md): Fullstack Next.js + FastAPI template for interactive apps
+- [Quick Start](https://docs.runtm.com/quickstart.md): Create a session and send your first prompt in 5 minutes
+
+## OpenAPI Specs
+
+- [openapi](https://docs.runtm.com/api-reference/openapi.json)
+
+## Optional
+
+- [GitHub](https://github.com/runtm-ai/runtm)

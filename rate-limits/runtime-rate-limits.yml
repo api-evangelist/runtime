@@ -1,0 +1,43 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.runtm.com/cloud-api/rate-limits
+docs: https://docs.runtm.com/cloud-api/rate-limits
+notes: >-
+  Rate limits are enforced per API key on a sliding window. Captured from the published rate-limits
+  page plus the repo SECURITY.md (deploy-specific limit).
+scope: per-api-key
+tiers:
+- tier: Standard
+  limit_count: 100
+  window: minute
+  burst: 20
+- tier: High-volume
+  limit_count: 500
+  window: minute
+  burst: 50
+  note: on request
+resource_limits:
+- resource: deployments
+  limit_count: 10
+  window: hour
+  scope: per-token
+  source: https://github.com/runtm-ai/runtm/blob/main/SECURITY.md
+- resource: artifact-size
+  max: 20MB
+- resource: build-timeout
+  max: 10m
+- resource: deploy-timeout
+  max: 5m
+headers:
+- name: X-RateLimit-Limit
+  description: Maximum requests allowed in the current window.
+- name: X-RateLimit-Remaining
+  description: Requests remaining in the current window.
+- name: X-RateLimit-Reset
+  description: Unix timestamp (seconds) when the window resets.
+- name: Retry-After
+  description: Seconds to wait after a 429 before retrying.
+on_exceeded:
+  status: 429
+  body: '{"detail": "Rate limit exceeded. Retry after 15 seconds."}'
+  guidance: exponential backoff starting from Retry-After, capped ~60s

@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/runtm-ai/runtm/blob/main/CHANGELOG.md
+notes: >-
+  Lifecycle posture for Runtime. The API is not versioned in the URL path; the product follows
+  SemVer with a Keep a Changelog changelog. No public status page (runtm.statuspage.io is an
+  unclaimed Atlassian placeholder) and no documented deprecation/Sunset-header policy were found —
+  so no StatusPage or Deprecation pointers are emitted. An SLA/uptime guarantee is offered on the
+  Enterprise plan.
+versioning:
+  scheme: semver
+  api_path_version: none
+  current: 0.2.130
+  changelog: changelog/runtime-changelog.yml
+supported_versions:
+  source: https://github.com/runtm-ai/runtm/blob/main/SECURITY.md
+  supported: ["0.1.x"]
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: no documented deprecation/RFC-8594 Sunset policy found
+status_page: null
+sla:
+  offered_on: Enterprise plan
+  source: https://www.runtm.com/pricing
+  detail: "SLA & uptime guarantee, dedicated support engineer"

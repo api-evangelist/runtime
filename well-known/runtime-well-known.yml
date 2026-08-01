@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: probed
+notes: >-
+  Probed the /.well-known/ discovery surface on all Runtime hosts. No documents were served: the
+  marketing host returns 404 and the app host redirects (307) every /.well-known/ path to the
+  authenticated app. Absence recorded as valid data; no WellKnown/SecurityTxt pointer emitted.
+hosts:
+- host: https://www.runtm.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://app.runtm.com
+  documents:
+  - {path: /.well-known/security.txt, status: 307, note: redirects to app}
+  - {path: /.well-known/openid-configuration, status: 307, note: redirects to app}
+  - {path: /.well-known/oauth-authorization-server, status: 307, note: redirects to app}
+  - {path: /.well-known/api-catalog, status: 307, note: redirects to app}
+  - {path: /.well-known/ai-plugin.json, status: 307, note: redirects to app}
+- host: https://docs.runtm.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}

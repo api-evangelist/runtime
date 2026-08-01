@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: searched
+source: https://pypi.org/project/runtm/
+notes: >-
+  Runtime ships a first-party command-line tool published to PyPI as `runtm` (maintained by founder
+  Gustavo Trigos, gus@runtm.com; Apache-2.0). A separate agent-focused CLI binary `runtm-api` (Go)
+  ships from the same monorepo. Runtime does not publish standalone language client-library SDKs — the
+  documented integration path is the REST Cloud API plus these CLIs. No SDKs pointer is emitted.
+packages:
+- language: python
+  registry: pypi
+  name: runtm
+  url: https://pypi.org/project/runtm/
+  install: pip install runtm
+  latest_version: 0.2.130
+  official: true
+  kind: cli
+  description: >-
+    Sandboxes where AI agents build and deploy. Spins up isolated environments for Claude Code,
+    Cursor, and other agents (local dev CLI).
+  repository: https://github.com/runtm-ai/runtm
+- language: go
+  registry: github
+  name: runtm-api
+  url: https://github.com/runtm-ai/runtm/tree/main/packages/agent
+  install: "see cli/runtime-cli.yml (goreleaser binary)"
+  official: true
+  kind: cli
+  description: >-
+    Thin Go wrapper around the Runtime Cloud API, designed for AI coding agents to drive sessions,
+    templates, deploys, skills, MCP servers and integrations from the command line.
+  repository: https://github.com/runtm-ai/runtm

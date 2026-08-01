@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.runtm.com/cloud-api/errors
+docs: https://docs.runtm.com/cloud-api/errors
+format: custom-json
+notes: >-
+  The Runtime Cloud API does not use RFC 9457 problem+json. Errors return a JSON object with a
+  `detail` field (string, or a structured object {error, message, field}). Captured from the published
+  error reference. HTTP status codes below are the documented set.
+envelope:
+  field: detail
+  string_shape: '{"detail": "Session not found"}'
+  object_shape: '{"detail": {"error": "validation_error", "message": "Field ''agent'' is required", "field": "agent"}}'
+problems:
+- status: 400
+  title: Bad Request
+  meaning: "Validation failed - missing or invalid fields, malformed JSON."
+- status: 401
+  title: Unauthorized
+  meaning: "API key is missing, invalid, or expired."
+- status: 403
+  title: Forbidden
+  meaning: "Key is valid but lacks the required scope, or the user is not a member of the target organization."
+  example: '{"detail": "Insufficient scope: requires sessions:write"}'
+- status: 404
+  title: Not Found
+  meaning: "The requested resource does not exist, or is not visible to the key's scope."
+- status: 409
+  title: Conflict
+  meaning: "The resource is in an invalid state for the requested operation (e.g. pausing an already-paused session)."
+- status: 413
+  title: Payload Too Large
+  meaning: "The request body exceeds the maximum allowed size."
+- status: 429
+  title: Too Many Requests
+  meaning: "Rate limit exceeded. Retry-After header tells you how long to wait."
+  ref: rate-limits/runtime-rate-limits.yml
+- status: 500
+  title: Internal Server Error
+  meaning: "An unexpected error occurred. If persistent, contact support."

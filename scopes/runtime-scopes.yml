@@ -1,0 +1,69 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.runtm.com/cloud-api/scopes
+docs: https://docs.runtm.com/cloud-api/scopes
+notes: >-
+  Runtime uses API-key scopes (not OAuth), following the pattern `resource:action`. Every key carries
+  a set of scopes that determine which endpoints it can call, bounded by the creating user's org role
+  ceiling. Captured verbatim from the published scope reference.
+model: api-key-scopes
+scheme:
+  name: BearerApiKey
+  pattern: "resource:action"
+  enforcement: "403 Insufficient scope: requires <scope> when a key lacks a required scope"
+  runtime_check: "GET /api/cloud/auth/verify returns a scopes[] array"
+scopes:
+- scope: sessions:read
+  description: List and view sessions
+- scope: sessions:write
+  description: Create, pause, resume, rename sessions
+- scope: sessions:delete
+  description: Destroy sessions
+- scope: sessions:prompt
+  description: Send prompts and cancel them
+- scope: sessions:terminal
+  description: WebSocket terminal access
+- scope: context:read
+  description: Read instructions, skills, directives
+- scope: context:write
+  description: Update instructions, manage skills
+- scope: secrets:read
+  description: List secret names (values are never returned)
+- scope: secrets:write
+  description: Set and delete secrets
+- scope: deployments:read
+  description: View deploy info and limits
+- scope: deployments:write
+  description: Run deploys
+- scope: templates:read
+  description: List and view templates
+- scope: templates:write
+  description: Create and update templates
+- scope: templates:build
+  description: Trigger template builds
+- scope: templates:delete
+  description: Delete templates
+- scope: integrations:read
+  description: View integrations
+- scope: integrations:write
+  description: Manage integrations
+- scope: guardrails:read
+  description: View org guardrails
+- scope: guardrails:write
+  description: Update org guardrails
+- scope: activity:read
+  description: View telemetry and usage
+presets:
+- name: Session automation
+  scopes: [sessions:read, sessions:write, sessions:delete, sessions:prompt, sessions:terminal, context:read, secrets:read]
+- name: Full access
+  scopes: [all]
+- name: Read-only
+  scopes: [sessions:read, context:read, secrets:read, deployments:read, templates:read, integrations:read, guardrails:read, activity:read]
+role_ceilings:
+- role: Member
+  ceiling: "Any scope for member-accessible resources; cannot grant guardrails:write or templates:delete"
+- role: Admin
+  ceiling: "All scopes except owner-reserved"
+- role: Owner
+  ceiling: "No restrictions"

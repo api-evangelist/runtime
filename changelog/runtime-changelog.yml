@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/runtm-ai/runtm/blob/main/CHANGELOG.md
+notes: >-
+  Runtime maintains a Keep a Changelog / SemVer changelog in its open-source monorepo. Current
+  published CLI version on PyPI is 0.2.130. Recent window captured below; full history lives at source.
+scheme: semver
+format: keep-a-changelog
+current_version: 0.2.130
+changelog_url: https://github.com/runtm-ai/runtm/blob/main/CHANGELOG.md
+entries:
+- version: Unreleased
+  highlights:
+  - "Agent CLI: runtm-api skills / mcp / tools gain full cloud CRUD so agents can author skills, wire MCP servers, and store tool credentials without the dashboard"
+  - "Agent CLI: runtm-api tools providers defines custom tool providers (org-scoped)"
+  - "Agent CLI: runtm-api agents manages Slack and GitHub integration agents"
+  breaking:
+  - "Agent CLI: renamed `runtm-api integrations` -> `runtm-api providers` (manages LLM provider keys)"
+  - "CLI/Shared: now require Python >= 3.10 (was >= 3.9)"
+  security:
+  - "Hardened skill file permissions (0750 dirs / 0600 files)"
+  - "Upgraded 14 dependency findings (cryptography, idna, pygments, pytest, python-dotenv, jaraco-context, golang.org/x/sys)"
+- version: 0.2.21
+  date: '2026-05-10'
+  additions: []
+  fixed:
+  - "API: tier override in create_deployment no longer drops volumes/env_schema/connections/policy/features from the manifest"
+- version: 0.2.20
+  date: '2026-05-09'
+- version: 0.2.19
+  date: '2026-05-09'
+- version: 0.2.18
+  date: '2026-05-03'
+- version: 0.2.17
+  date: '2026-04-02'

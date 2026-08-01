@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/runtm-ai/runtm/blob/main/packages/agent/skills/SKILL.md
+notes: >-
+  Runtime publishes its own Agent Skills — bundled into the runtm-api binary and installable via
+  `runtm-api skills install`. The marquee `runtm` skill (saved verbatim as runtime-cloud.md) documents
+  the full Cloud API surface for AI agents: sessions, templates, deploys, secrets, guardrails, LLM
+  provider keys, and external integrations (MCP servers, skills, tools). The repo also ships companion
+  bundled skills (runtm-sessions, runtm-templates, runtm-integrations, runtm-agents) referenced within
+  it. Runtime additionally maintains a public skills catalog at github.com/runtm-ai/skills.
+skills:
+- file: runtime-cloud.md
+  name: runtm
+  api: Runtime Cloud API
+  source: https://github.com/runtm-ai/runtm/blob/main/packages/agent/skills/SKILL.md
+  method: searched
+  description: >-
+    Runtm (Runtime) Cloud CLI for AI agents — full cloud-API surface: sessions (CRUD + files + env +
+    deploy + lifecycle + history + events + collaborators), org templates, activity telemetry, secrets,
+    instructions, guardrails, LLM provider keys, and external integrations (MCP servers, skills, tools).

@@ -1,0 +1,54 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.runtm.com/cloud-api/conventions
+docs: https://docs.runtm.com/cloud-api/conventions
+notes: >-
+  Cross-cutting request/response semantics for the Runtime Cloud API, captured from the published
+  conventions page. Cross-links: errors/runtime-problem-types.yml, authentication/runtime-authentication.yml,
+  scopes/runtime-scopes.yml, rate-limits/runtime-rate-limits.yml.
+authentication:
+  style: bearer-api-key
+  header: "Authorization: Bearer runtm_sk_..."
+  org_header: X-Organization-Id
+idempotency:
+  supported: true
+  header: Idempotency-Key
+  applies_to: "POST requests that create resources"
+  retention: "24 hours"
+  scope: "scoped to the API key that sent the key"
+  behavior: >-
+    If the same Idempotency-Key is sent within 24 hours, the API returns the original response
+    without creating a duplicate resource.
+pagination:
+  styles:
+  - style: offset
+    params: {limit: "1-100 (default 20)", offset: "default 0"}
+    response_fields: [total, has_more]
+  - style: cursor
+    params: {page_size: "1-100", page_token: "opaque token from previous response"}
+    response_fields: [next_page_token]
+  note: "Endpoint pages specify which pagination style they use."
+timestamps:
+  format: "ISO 8601 UTC (e.g. 2026-05-09T21:00:00Z)"
+  fields: [created_at, updated_at]
+  note: "updated_at is null when the resource has never been modified after creation."
+content_types:
+  json: application/json
+  file_upload: multipart/form-data
+  streaming: text/event-stream
+  websocket: "N/A (upgrade handshake)"
+custom_methods:
+  pattern: "colon-separated action; always POST"
+  examples:
+  - "POST /api/sessions/{session_id}:pause"
+  - "POST /api/sessions/{session_id}:resume"
+  - "POST /api/sessions/{session_id}:prompt"
+error_envelope:
+  field: detail
+  shape: "string, or structured object {error, message, field}"
+  ref: errors/runtime-problem-types.yml
+rate_limit_signaling:
+  headers: [X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After]
+  ref: rate-limits/runtime-rate-limits.yml
+versioning:
+  scheme: "no API version in path; product follows SemVer (see changelog/runtime-changelog.yml)"

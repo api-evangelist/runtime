@@ -1,8 +1,27 @@
 aid: runtime
 name: Runtime
-description: Runtime is a company surfaced as a portfolio company of y-combinator and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Runtime (runtm.com) is a Y Combinator-backed platform (Spring 2026) that lets engineering and
+  non-engineering teams safely run coding agents across an organization. It provides sandboxed
+  per-session VMs, session-level observability, and configurable guardrails so teams can ship with
+  agents like Claude Code, OpenAI Codex, and Gemini without breaking production. The hosted Runtime
+  Cloud API (app.runtm.com/api/cloud) exposes sessions, templates, deployments, guardrails, secrets,
+  knowledge and skill directives, and activity telemetry behind scoped bearer-token API keys, with a
+  first-party CLI (runtm) and an agent-focused CLI (runtm-api).
 url: https://raw.githubusercontent.com/api-evangelist/runtime/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://runtm.com/og-image.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,12 +30,103 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Coding Agents
+- Developer Tools
+- AI Infrastructure
+- Sandboxes
+- Agent Orchestration
+- DevOps
+- Cloud
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: Runtime Cloud API
+  description: >-
+    The hosted Runtime Cloud API — manage sandboxed coding-agent sessions, org templates,
+    deployments, guardrails, secrets, knowledge and skill directives, and activity telemetry.
+    Authenticated with scoped bearer-token API keys (runtm_sk_ prefix).
+  humanURL: https://docs.runtm.com/cloud-api
+  baseURL: https://app.runtm.com/api/cloud
+  properties:
+  - type: Documentation
+    url: https://docs.runtm.com/cloud-api
+  - type: Authentication
+    url: authentication/runtime-authentication.yml
+  - type: OAuthScopes
+    url: scopes/runtime-scopes.yml
+  - type: Conventions
+    url: conventions/runtime-conventions.yml
+  - type: Idempotency
+    url: conventions/runtime-conventions.yml
+  - type: ErrorCatalog
+    url: errors/runtime-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/runtime-rate-limits.yml
+common:
+- type: DomainSecurity
+  url: security/runtime-domain-security.yml
+- type: Website
+  url: https://www.runtm.com/
+- type: DeveloperPortal
+  url: https://docs.runtm.com
+- type: Documentation
+  url: https://docs.runtm.com/cloud-api
+- type: APIReference
+  url: https://docs.runtm.com/cloud-api
+- type: GettingStarted
+  url: https://docs.runtm.com/quickstart
+- type: Blog
+  url: https://www.runtm.com/blog
+- type: GitHubOrganization
+  url: https://github.com/runtm-ai
+- type: Support
+  url: https://discord.gg/JUuCkUKc
+- type: Pricing
+  url: https://www.runtm.com/pricing
+- type: SignUp
+  url: https://app.runtm.com/login
+- type: Login
+  url: https://app.runtm.com/login
+- type: TermsOfService
+  url: https://www.runtm.com/terms
+- type: PrivacyPolicy
+  url: https://www.runtm.com/privacy
+- type: LLMsTxt
+  url: llms/runtime-llms.txt
+- type: Authentication
+  url: authentication/runtime-authentication.yml
+- type: OAuthScopes
+  url: scopes/runtime-scopes.yml
+- type: Conventions
+  url: conventions/runtime-conventions.yml
+- type: Idempotency
+  url: conventions/runtime-conventions.yml
+- type: ErrorCatalog
+  url: errors/runtime-problem-types.yml
+- type: RateLimits
+  url: rate-limits/runtime-rate-limits.yml
+- type: Lifecycle
+  url: lifecycle/runtime-lifecycle.yml
+- type: ChangeLog
+  url: changelog/runtime-changelog.yml
+- type: Packages
+  url: packages/runtime-packages.yml
+- type: CLI
+  url: cli/runtime-cli.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: VulnerabilityDisclosure
+  url: security/runtime-vulnerability-disclosure.yml
+- type: Security
+  url: https://github.com/runtm-ai/runtm/blob/main/SECURITY.md
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 14
+  pass: local-v1

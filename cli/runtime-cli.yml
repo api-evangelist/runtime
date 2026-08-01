@@ -1,0 +1,51 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.runtm.com/cloud-api/agent-cli.md
+notes: >-
+  Runtime ships two first-party CLIs. `runtm` (pip) is the local-dev CLI for spinning up sandboxes.
+  `runtm-api` (Go binary) is a thin wrapper over the hosted Cloud API designed for AI coding agents —
+  it covers the same operations as the dashboard. Command surface below is the agent CLI (runtm-api).
+clis:
+- name: runtm-api
+  kind: agent-cli
+  language: go
+  binary: runtm-api
+  docs: https://docs.runtm.com/cloud-api/agent-cli
+  repository: https://github.com/runtm-ai/runtm/tree/main/packages/agent
+  auth: "Bearer API key (runtm_sk_) via ~/.runtm/credentials; routes through https://app.runtm.com/api/cloud"
+  install:
+  - method: mise/goreleaser binary
+    note: released via goreleaser from packages/agent
+  command_groups:
+  - group: template
+    commands: [create, get, list, update, delete, build, snapshot]
+    note: "create/manage org templates; --github-repo, --tier, --session-arg, --skip-agent"
+  - group: session
+    commands: [create, get, list, connect, exec, prompt, pause, resume, delete, files, env]
+    note: "boot sessions from templates; connect (PTY) and exec (one-shot) require sessions:terminal scope"
+  - group: skills
+    commands: [create, get, list, update, delete, install]
+    note: "author agent skills; maps to /api/agent-directives; list --bundled lists embedded skills"
+  - group: mcp
+    commands: [create, get, list, update, delete]
+    note: "wire MCP servers over stdio (--command/--arg/--env) or http/sse (--url/--header)"
+  - group: tools
+    commands: [create, get, list, update, delete, providers]
+    note: "store provider tool credentials; maps to /api/knowledge/integrations"
+  - group: providers
+    commands: [anthropic, openai]
+    note: "manage LLM provider API keys (get/set/delete/resolved); was 'integrations' before 0.2.x rename"
+  - group: agents
+    commands: [create, list, get, update, delete]
+    note: "manage Slack and GitHub integration agents that launch sessions on mention/issue/PR"
+- name: runtm
+  kind: dev-cli
+  language: python
+  binary: runtm
+  install:
+  - method: pip
+    command: pip install runtm
+  - method: uv
+    command: uv tool install runtm
+  repository: https://github.com/runtm-ai/runtm
+  note: "local-dev CLI for spinning up isolated sandbox environments for Claude Code, Cursor, etc."
